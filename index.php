@@ -2,7 +2,7 @@
 
 // Display only your coin.
 $displayCoin = '';
-// Available Options: btc, eth, ltc, dash, send, cdzc, arrr, colx, znz, thc, eca, pivx, nbr, gali, bitc, ok, ethplo, ark, veil, doge. (or leave empty to display all)
+// Available Options: btc, eth, ltc, dash, send, cds, cdzc, arrr, colx, znz, thc, eca, pivx, nbr, gali, bitc, ok, ethplo, ark, veil, doge. (or leave empty to display all)
 
 //Display only streams that are online/offline
 $displayStatus = '';
@@ -10,7 +10,7 @@ $displayStatus = '';
 
 //Enable Pagination for easier sorting of streams onto multiple pages.
 $displayPagination = '';
-// Available Options: numeric = 1 to 20 (streams shown per page. leave empty to disable pagination) 
+// Available Options: numeric = 1 to 20 (streams shown per page. leave empty to disable pagination)
 
 
 //Get Data from CryptocurrencyCheckout CryptoStreamers API
@@ -19,7 +19,7 @@ curl_setopt($curl, CURLOPT_FAILONERROR, true);
 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 $results = curl_exec($curl);
 $cryptoStreamers = json_decode($results);
 ?>
@@ -32,7 +32,7 @@ $cryptoStreamers = json_decode($results);
 
   </head>
 
-  
+
   <body>
     <div class="container">
 
@@ -58,16 +58,16 @@ $cryptoStreamers = json_decode($results);
             height: 197,
             <?php echo 'channel: "' . $value->stream_id . '",' ?>
             autoplay: false
-          };   
+          };
           <?php echo 'var player = new Twitch.Player("twitch_player_' . $value->stream_id . '", options); '?>
-          
+
           player.setVolume(0.5);
         </script>
 
       <?php } ?>
 
     </div>
-      
+
     </div>
 
   </body>
